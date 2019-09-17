@@ -7,13 +7,13 @@ csvpath = '../Resources/budget_data.csv'
 total_months = 0
 sum = 0
 total_net = 0
-month_of_change =[]
-net_change_list = []
 greatest_increase = []
 greatest_decrease = []
 profit_loss = []
 differences_list = []
-
+date = []
+change_date = []
+change_date_list = []
 
 with open(csvpath, newline='') as handler:
 	csvreader = csv.reader(handler, delimiter=",")
@@ -25,14 +25,17 @@ with open(csvpath, newline='') as handler:
 		total_months = total_months + 1
 		total_net = total_net + int(row[1])
 		profit_loss.append(int(row[1]))
+		date.append(row[0])
 	print(total_months)
 	print(total_net)
 	print(profit_loss)
+	print(date) 
 
 	for i in range(1,len(profit_loss)):
 
 		difference = profit_loss[i] - profit_loss[i-1]
-		differences_list.append(float(difference))
+		differences_list.append(difference)
+
 
 
 	print(differences_list)
@@ -42,6 +45,21 @@ with open(csvpath, newline='') as handler:
 
 	greatest_increase = np.max(differences_list)
 	greatest_decrease = np.min(differences_list)
+
+	for i in range(len(date)):
+
+		change_date = date[i+1] 
+		change_date_list.append(change_date)
+
+	print(change_date_list)
+
+
+
+
+
+
+
+		
 
 		
 
