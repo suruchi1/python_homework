@@ -13,7 +13,7 @@ profit_loss = []
 differences_list = []
 date = []
 change_date = []
-change_date_list = []
+
 
 with open(csvpath, newline='') as handler:
 	csvreader = csv.reader(handler, delimiter=",")
@@ -46,12 +46,6 @@ with open(csvpath, newline='') as handler:
 	greatest_increase = np.max(differences_list)
 	greatest_decrease = np.min(differences_list)
 
-	for i in range(len(date)):
-
-		change_date = date[i+1] 
-		change_date_list.append(change_date)
-
-	print(change_date_list)
 
 
 
